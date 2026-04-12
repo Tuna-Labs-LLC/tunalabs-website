@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuna Labs LLC</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta
+    name="description"
+    content="AI infrastructure, DevEx, developer productivity, technical leadership, and cloud cost reduction for startups and product teams."
+  />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-THM55DQDC6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-THM55DQDC6');
+  </script>
+
+  <style>
+    :root {
+      --bg: #08101f;
+      --bg-2: #0d1730;
+      --panel: rgba(11, 21, 43, 0.92);
+      --panel-2: rgba(17, 30, 58, 0.88);
+      --text: #eef4ff;
+      --muted: #9aa8c3;
+      --line: rgba(163, 190, 255, 0.16);
+      --line-strong: rgba(163, 190, 255, 0.28);
+      --accent: #a8c3ff;
+      --accent-soft: rgba(168, 195, 255, 0.12);
+      --max: 1080px;
+      --radius: 20px;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(168, 195, 255, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(168, 195, 255, 0.08), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 16, 31, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      height: 68px;
+      width: auto;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      font-size: 1rem;
+      line-height: 1.05;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-copy span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.15;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 22px 0 14px;
+    }
+
+    .hero-panel,
+    .card,
+    .contact-card {
+      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      padding: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(260px, 0.72fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 16px 0 12px;
+      max-width: 760px;
+      font-size: clamp(2.3rem, 5.2vw, 4.9rem);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-sub {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-proof {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .mini-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-proof p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
+
+    .proof-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .proof-item {
+      padding: 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .proof-item:first-of-type {
+      border-top: 0;
+      padding-top: 2px;
+    }
+
+    .proof-value {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--text);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .proof-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: #0a1120;
+      border-color: transparent;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.04rem;
+      line-height: 1.18;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(168, 195, 255, 0.18);
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 10px 0;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-body h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    .section-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 760px;
+    }
+
+    .offerings {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .list {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px;
+      margin-top: 14px;
+    }
+
+    .contact-copy h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      letter-spacing: -0.03em;
+    }
+
+    .contact-copy p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    footer {
+      padding: 18px 0 28px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-address {
+      margin-top: 4px;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 980px) {
+      .hero-top,
+      .focus-grid,
+      .detail-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .focus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .brand-logo {
+        height: 60px;
+      }
+
+      .hero-panel,
+      .card,
+      .contact-card {
+        padding: 18px;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button,
+      .actions {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Tuna Labs home">
+        <img src="logo-tight.png" alt="Tuna Labs logo" class="brand-logo" />
+        <div class="brand-copy">
+          <strong>Tuna Labs LLC</strong>
+          <span>AI infrastructure. DevEx. Cloud cost reduction.</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#focus">Focus</a>
+        <a href="#offerings">Offerings</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-panel">
+          <div class="eyebrow">Seattle-based · AI-native infrastructure and platform engineering</div>
+
+          <div class="hero-top">
+            <div>
+              <h1>AI infrastructure, DevEx, and cloud efficiency for teams that need sharp technical leadership.</h1>
+              <p class="hero-sub">
+                I help companies build AI-native systems, improve developer productivity, lead highly technical teams, and reduce AWS and GCP spend without compromising reliability.
+              </p>
+              <div class="actions">
+                <a
+                  class="button primary"
+                  href="mailto:hello@tunalabs.ai?subject=Consulting%20inquiry"
+                  onclick="gtag('event','email_click',{'location':'hero'});"
+                >
+                  hello@tunalabs.ai
+                </a>
+                <a class="button secondary" href="#focus">See focus areas</a>
+              </div>
+            </div>
+
+            <div class="hero-proof">
+              <div class="mini-label">Proof</div>
+              <div class="proof-stack">
+                <div class="proof-item">
+                  <span class="proof-value">AI-native</span>
+                  <span class="proof-label">Led AI-focused work and teams</span>
+                </div>
+                <div class="proof-item">
+                  <span class="proof-value">DevEx Depth</span>
+                  <span class="proof-label">Years in developer productivity and platform work</span>
+                </div>
+                <div class="proof-item">
+                  <span class="proof-value">AWS + GCP</span>
+                  <span class="proof-label">Cloud cost, reliability, and infrastructure judgment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="focus" class="focus-grid">
+            <article class="card">
+              <div class="number">01</div>
+              <h3>AI-native and AI team leadership</h3>
+              <p>I’ve led AI-focused work and teams, and I understand the infrastructure, tooling, and operational realities behind AI-native engineering.</p>
+            </article>
+
+            <article class="card">
+              <div class="number">02</div>
+              <h3>DevEx and developer productivity</h3>
+              <p>This is a real niche, and it has been a core part of my work for years: build systems, CI/CD, platform ergonomics, and internal leverage.</p>
+            </article>
+
+            <article class="card">
+              <div class="number">03</div>
+              <h3>Technical leadership with engineering depth</h3>
+              <p>I lead tight, high-output technical teams and can operate directly in architecture, systems, infrastructure, and implementation.</p>
+            </article>
+
+            <article class="card">
+              <div class="number">04</div>
+              <h3>Cloud cost and reliability</h3>
+              <p>I know AWS and GCP well, and I know how to reduce spend, improve reliability, and clean up wasteful infrastructure decisions.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offerings" class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="section-body">
+            <div class="section-kicker">Offerings</div>
+          <h2>Precise work I can come in and fix.</h2>
+          <p>Focused engagements for infrastructure, platform, and engineering efficiency problems that are costing time, money, or execution quality.</p>
+          </div>
+        </div>
+        <div class="section-body">
+          <div class="offerings">
+            <span class="pill">AI infrastructure</span>
+            <span class="pill">CI/CD modernization</span>
+            <span class="pill">Developer productivity</span>
+            <span class="pill">Internal platforms</span>
+            <span class="pill">DevEx strategy</span>
+            <span class="pill">Kubernetes platform engineering</span>
+            <span class="pill">Golden paths</span>
+            <span class="pill">Self-service infrastructure</span>
+            <span class="pill">Container security</span>
+            <span class="pill">Build speed improvements</span>
+            <span class="pill">AWS cost reduction</span>
+            <span class="pill">GCP cost reduction</span>
+            <span class="pill">Reliability improvements</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="section-body">
+            <div class="section-kicker">Fit</div>
+          <h2>Best fit for teams that need a strong technical operator, not just advice.</h2>
+          </div>
+        </div>
+        <div class="section-body">
+          <div class="detail-grid">
+            <article class="card">
+              <h3>Common situations</h3>
+              <ul class="list">
+                <li>AI work is moving fast, but the platform underneath it is weak</li>
+                <li>Developer productivity problems are slowing delivery</li>
+                <li>Infrastructure is expensive, messy, or hard to trust</li>
+                <li>You need principal-level judgment without a full-time hire</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Relevant background</h3>
+              <ul class="list">
+                <li>15+ years in software, cloud, and infrastructure</li>
+                <li>Amazon, Snap, and Docker experience</li>
+                <li>Manager and builder, not one or the other</li>
+                <li>Strong AWS and GCP depth with platform instincts</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div id="contact" class="contact-card">
+          <div class="contact-copy">
+            <div class="mini-label">Contact</div>
+            <h2>Email is the fastest path.</h2>
+            <p>If you need help with AI infrastructure, DevEx, developer productivity, cloud cost reduction, or reliability, reach out directly at hello@tunalabs.ai.</p>
+          </div>
+          <div class="actions" style="margin-top:0;">
+            <a
+              class="button primary"
+              href="mailto:hello@tunalabs.ai?subject=Consulting%20inquiry"
+              onclick="gtag('event','email_click',{'location':'contact'});"
+            >
+              hello@tunalabs.ai
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>© 2026 Tuna Labs LLC. All rights reserved.</div>
+      <div class="footer-address">522 W Riverside Ave Ste N, Spokane, WA 99201-0581, United States</div>
+    </div>
+  </footer>
+</body>
+</html>
